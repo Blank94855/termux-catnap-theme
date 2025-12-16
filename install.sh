@@ -1,8 +1,45 @@
-!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 pkg install -y fastfetch git
 
 mkdir -p ~/.config/fastfetch
+
+cat > ~/.config/fastfetch/logo.json << 'EOF'
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "small",
+        "padding": {
+            "left": 5,
+            "right": 6,
+            "top": 1
+        }
+    },
+    "display": {
+        "separator": "",
+        "key": {
+            "paddingLeft": 5,
+            "width": 10
+        }
+    },
+    "modules": [
+        "break",
+        "break",
+        "colors",
+        "break",
+        {
+            "key": " ",
+            "type": "version",
+            "format": " {project-name} {version}"
+        },
+        {
+            "key": " ",
+            "type": "colors",
+            "symbol": "circle"
+        }
+    ]
+}
+EOF
 
 cat > ~/.config/fastfetch/config.json << 'EOF'
 {
@@ -157,6 +194,7 @@ EOF
 touch ~/.hushlogin
 
 sed -i '/fastfetch/d' ~/.bashrc
+echo 'fastfetch --config ~/.config/fastfetch/logo.json' >> ~/.bashrc
 echo 'fastfetch --config ~/.config/fastfetch/config.json' >> ~/.bashrc
 
 echo "Installation complete. Restart Termux to see the new theme."
