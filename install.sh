@@ -154,8 +154,7 @@ cat > ~/.config/fastfetch/config.json << 'EOF'
 }
 EOF
 
-if ! grep -q "fastfetch" ~/.bashrc; then
-    echo "fastfetch" >> ~/.bashrc
-fi
+sed -i '/fastfetch/d' ~/.bashrc
+echo 'fastfetch --config ~/.config/fastfetch/config.json' >> ~/.bashrc
 
 echo "Installation complete. Restart Termux to see the new theme."
