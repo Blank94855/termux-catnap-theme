@@ -16,6 +16,10 @@ It has:
 - Color scheme preview
 - Customized visual layout with borders and formatting
 
+
+***NOTE:*** for better customization, install termux styling:
+https://f-droid.org/en/packages/com.termux.styling/
+
 ## Installation
 
 Run this single command in Termux:
