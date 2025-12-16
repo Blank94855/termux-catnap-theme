@@ -1,19 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-pkg install -y fastfetch git wget
+pkg install -y fastfetch git
 
-mkdir -p ~/.termux
-cd ~/.termux
-
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
-unzip -o JetBrainsMono.zip
-rm JetBrainsMono.zip
-
-cat > font.ttf << 'EOF'
-JetBrainsMonoNerdFont-Regular.ttf
-EOF
-
-cp JetBrainsMonoNerdFont-Regular.ttf font.ttf
+echo "Downloading Nerd Font..."
+curl -fLo ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf
 
 termux-reload-settings
 
@@ -212,4 +202,7 @@ sed -i '/fastfetch/d' ~/.bashrc
 echo 'fastfetch --config ~/.config/fastfetch/logo.json' >> ~/.bashrc
 echo 'fastfetch --config ~/.config/fastfetch/config.json' >> ~/.bashrc
 
-echo "Installation complete. Close and reopen Termux to see the new theme with icons."
+echo ""
+echo "Installation complete!"
+echo "IMPORTANT: Close Termux completely and reopen it for the font to load."
+echo "The icons will only show after you restart Termux."
