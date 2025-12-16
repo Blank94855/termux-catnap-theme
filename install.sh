@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+!/data/data/com.termux/files/usr/bin/bash
 
 pkg install -y fastfetch git
 
@@ -153,6 +153,8 @@ cat > ~/.config/fastfetch/config.json << 'EOF'
     ]
 }
 EOF
+
+touch ~/.hushlogin
 
 sed -i '/fastfetch/d' ~/.bashrc
 echo 'fastfetch --config ~/.config/fastfetch/config.json' >> ~/.bashrc
