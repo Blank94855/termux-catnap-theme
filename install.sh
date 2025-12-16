@@ -1,11 +1,10 @@
-bash
 #!/data/data/com.termux/files/usr/bin/bash
 
 pkg install -y fastfetch git
 
 mkdir -p ~/.config/fastfetch
 
-cat > ~/.config/fastfetch/config.jsonc << 'EOF'
+cat > ~/.config/fastfetch/config.json << 'EOF'
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
@@ -15,10 +14,10 @@ cat > ~/.config/fastfetch/config.jsonc << 'EOF'
         "separator": "  ",
         "key": {
             "width": 22,
-            "paddingLeft": 4,
+            "paddingLeft": 4
         },
         "size": {
-          "binaryPrefix": "jedec",
+          "binaryPrefix": "jedec"
         },
         "percent": {
             "type": 11
@@ -35,7 +34,7 @@ cat > ~/.config/fastfetch/config.jsonc << 'EOF'
                 "elapsed": "\uee04"
             },
             "width": 49
-        },
+        }
     },
     "modules": [
         "break",
@@ -150,7 +149,7 @@ cat > ~/.config/fastfetch/config.jsonc << 'EOF'
             "type": "title",
             "format": "   -----------------------------------------------------\u001b[37D {#yellow}{user-name}{#} @ {#blue}{host-name}{#} "
         },
-        "break",
+        "break"
     ]
 }
 EOF
@@ -159,4 +158,4 @@ if ! grep -q "fastfetch" ~/.bashrc; then
     echo "fastfetch" >> ~/.bashrc
 fi
 
-echo "Installation complete. Restart Termux."
+echo "Installation complete. Restart Termux to see the new theme."
